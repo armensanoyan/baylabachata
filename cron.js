@@ -4,7 +4,7 @@ const {convertCsvToJSON, getClassesForToday} = require('./utils')
 const {sendRequestToTelegramBot} = require('./requests.js')
 
 new CronJob(
-  '0 * * * * *',
+  '0 0 * * * *',
   () => {
     downloadCsvFile()
       .then(convertCsvToJSON)

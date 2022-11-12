@@ -8,10 +8,11 @@ const constructText = (data) => {
     cls.class = cls.class.replace('/', ' ')
     return cls
   })
-  const fistInBig = data.find(cls => cls.place === 'big hol' && cls.time ==='7:30')?.class
-  const secondInBig = data.find(cls => cls.place === 'big hol' && cls.time ==='8:30')?.class
-  const fistInSmall = data.find(cls => cls.place === 'small hol' && cls.time ==='7:30')?.class
-  const secondInSmall = data.find(cls => cls.place === 'small hol' && cls.time ==='8:30')?.class
+  const fistInBig = data.find(cls => cls.place === 'big hol' && cls.time ==='7:30').class
+  const secondInBig = data.find(cls => cls.place === 'big hol' && cls.time ==='8:30').class
+  const fistInSmall = data.find(cls => cls.place === 'small hol' && cls.time ==='7:30').class
+  const secondInSmall = data.find(cls => cls.place === 'small hol' && cls.time ==='8:30').class
+  const party = data.find(cls =>  cls.time === '9:30').class
 
   return `
 Today %0A %0A
@@ -24,7 +25,10 @@ Big hall: %0A %0A
 ${fistInSmall || secondInSmall ? `Small hall: %0A` : ''}
 
 ${fistInSmall ? `19:30 - ${fistInSmall}` : ''} %0A
-${ secondInSmall ? `20:30 - ${secondInSmall}` : ''} %0A
+${ secondInSmall ? `20:30 - ${secondInSmall}` : ''} %0A %0A
+
+${party ? 'Party' : ''} %0A
+${party ? `21:30 - ${party}` : ''}
   `
 }
 
