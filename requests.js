@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const CHAT_ID = '661530020'
+const CHAT_ID = '1001832762595'
 const BOT = '5424318541:AAGUOvfXVFkbuUdjYNmuGTZ4K46dkhyXxvE'
 const URL = 'https://api.telegram.org/bot'
 
