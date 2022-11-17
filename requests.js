@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const CHAT_ID = '1001832762595'
+const CHAT_ID = '661530020'
 const BOT = '5424318541:AAGUOvfXVFkbuUdjYNmuGTZ4K46dkhyXxvE'
 const URL = 'https://api.telegram.org/bot'
 
@@ -8,20 +8,20 @@ const constructText = (data) => {
     return ''
   }
   return Object.keys(data).reduce((text, holName) => {
-    text = text + `
-
+    text = text + `%0A
+%0A
 ${holName}
-
+%0A
     `
     data[holName].forEach(element => {
       if (element.class && element.time) {
         text = text + `
-${element.time} - ${element.class}
+        %0A${element.time} - ${element.class}
         `
       }
     });
     return text
-  }, 'Today \r')
+  }, 'Today ')
 
 }
 
@@ -37,6 +37,7 @@ const getUrl = (classesForToday) => {
 const sendRequestToTelegramBot = (classesForToday) => {
   const url= getUrl(classesForToday)
   if (url) {
+    console.log('url', url)
     return fetch(url)
   } else {
     return Promise.resolve()
